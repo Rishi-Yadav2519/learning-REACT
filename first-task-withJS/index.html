@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>first-task</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #212121;
+            color: #fff;
+        }
+        #root {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            gap: 20px;
+            width: 100vw;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+<script>
+    const root = document.getElementById('root');
+
+    let value = 0;
+
+    const display = document.createElement('div');
+    display.innerHTML = `<h1>The value is: ${value}</h1>`;
+
+    const button = document.createElement('button');
+    button.textContent = 'Addition';
+    button.style.border = '2px solid #fff';
+    button.style.padding = '10px 20px';
+    button.style.borderRadius = '10px';
+    
+    const button2 = document.createElement('button');
+    button2.textContent = 'Subtraction';
+    button2.style.border = '2px solid #fff';
+    button2.style.padding = '10px 20px';
+    button2.style.borderRadius = '10px';
+    
+    const btnContainer = document.createElement('div');
+    btnContainer.style.display = 'flex';
+    btnContainer.style.gap = '10px';
+    btnContainer.appendChild(button);
+    btnContainer.appendChild(button2);
+
+    root.appendChild(display);
+    root.appendChild(btnContainer);
+
+    button.addEventListener('click', () => {
+        if (value < 20) {
+            value += 1;
+            display.innerHTML = `<h1>The value is: ${value}</h1>`;
+        }
+    });
+
+    button2.addEventListener('click', () => {
+        if (value > 0) {
+            value -= 1;
+            display.innerHTML = `<h1>The value is: ${value}</h1>`;
+        }
+    });
+</script>
+</html>
